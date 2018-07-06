@@ -4,7 +4,7 @@ const { User } = require("../model");
 const config = require("../config");
 
 module.exports = {
-  async login(req, res){
+  async login(req, res, next){
     const { user:{ email, password } } = req.body;
     try {
 

@@ -30,6 +30,15 @@ app.use(morgan('dev'));
 
 Router(app);
 
+app.use(( error , req, res, next) => {
+	return res.status(422).send({ status: {
+        code: 422,
+        message: error.message,
+        succeeded: false
+    }});
+});
+
+
 app.listen(config.PORT || 8001, () => {
   console.log(`listen port ${config.PORT || 8001}`)
 })
