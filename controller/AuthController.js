@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { User } = require("../model"); 
+const config = require("../config");
 
 module.exports = {
   async login(req, res){
@@ -26,7 +27,7 @@ module.exports = {
                 id: theUser.id
             }
 
-            const token = jwt.sign(payload, keys.JWT_SECRET_KEY, {
+            const token = jwt.sign(payload, config.JWT_SECRET_KEY, {
             expiresIn: 7 * 24 * 60 * 60
             });
             
@@ -102,7 +103,7 @@ async function jwtVerify(req, res) {
   }
   
   try{
-  decoded =  await jwt.verify(token, keys.JWT_SECRET_KEY);
+  decoded =  await jwt.verify(token, config.JWT_SECRET_KEY);
 
   const user = await User.findById(decoded.id);
 
