@@ -10,4 +10,4 @@ COPY . /app
 
 CMD npm run prod
 
-EXPOSE 8001
+EXPOSE 8002

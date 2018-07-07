@@ -39,6 +39,6 @@ app.use(( error , req, res, next) => {
 });
 
 
-app.listen(config.PORT || 8001, () => {
-  console.log(`listen port ${config.PORT || 8001}`)
+app.listen(config.PORT || 8002, () => {
+  console.log(`listen port ${config.PORT || 8002}`)
 })
